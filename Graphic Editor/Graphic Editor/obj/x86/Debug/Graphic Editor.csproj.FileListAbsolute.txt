@@ -1,0 +1,7 @@
+D:\Учёба\Labs\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic_Editor.MainForm.resources
+D:\Учёба\Labs\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic_Editor.Properties.Resources.resources
+D:\Учёба\Labs\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.csproj.GenerateResource.Cache
+D:\Учёба\Labs\Graphic Editor\Graphic Editor\bin\Debug\Graphic Editor.exe
+D:\Учёба\Labs\Graphic Editor\Graphic Editor\bin\Debug\Graphic Editor.pdb
+D:\Учёба\Labs\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.exe
+D:\Учёба\Labs\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.pdb
