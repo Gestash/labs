@@ -5,3 +5,5 @@ D:\Учёба\Labs\Graphic Editor\Graphic Editor\bin\Debug\Graphic Editor.exe
 D:\Учёба\Labs\Graphic Editor\Graphic Editor\bin\Debug\Graphic Editor.pdb
 D:\Учёба\Labs\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.exe
 D:\Учёба\Labs\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.pdb
+D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.exe
+D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.pdb
