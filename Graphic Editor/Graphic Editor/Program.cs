@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.IO;
+using Tao.OpenGl;
+using Tao.FreeGlut;
+using Tao.Platform.Windows; 
+
 
 namespace Graphic_Editor
 {
