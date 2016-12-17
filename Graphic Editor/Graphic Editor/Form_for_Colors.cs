@@ -12,8 +12,8 @@ namespace Graphic_Editor
     public partial class Form_for_Colors : Form
     {
         MainForm OwnerForm;
-        Bitmap image1;
-        MainForm image = new MainForm();
+        Bitmap image;
+       
         public Form_for_Colors(MainForm ownerForm)
         {
             this.OwnerForm = ownerForm;
@@ -26,8 +26,8 @@ namespace Graphic_Editor
         {
             if (MainForm.full_name_of_image != "\0")
             {
-
-                OwnerForm = Colors.Color_R(image, trackBar1.Value, trackBar1.Maximum);
+                
+                image = Colors.Color_R(image, trackBar1.Value, trackBar1.Maximum);
                 FromBitmapToScreen();
                 
             }
@@ -38,9 +38,7 @@ namespace Graphic_Editor
             if (MainForm.full_name_of_image != "\0")
             {
 
-                OwnerForm = Colors.Color_G(image, trackBar2.Value, trackBar2.Maximum);
-                FromBitmapToScreen();
-
+                image = Colors.Color_G(image, trackBar2.Value, trackBar2.Maximum);
                 FromBitmapToScreen();
             }
         }
@@ -51,9 +49,7 @@ namespace Graphic_Editor
             if (MainForm.full_name_of_image != "\0")
             {
 
-                OwnerForm = Colors.Color_B(image, trackBar3.Value, trackBar3.Maximum);
-                FromBitmapToScreen();
-
+                image = Colors.Color_B(image, trackBar3.Value, trackBar3.Maximum);
                 FromBitmapToScreen();
             }
         }
@@ -62,9 +58,9 @@ namespace Graphic_Editor
         {
             if (MainForm.full_name_of_image != "\0")
             {
-                for (int i = 0; i <image.Height; i++)
-                    for (int j = 0; j < image.Width; j++)
-                        MainForm.image =image1.GetPixel(j, i).ToArgb();
+                //for (int i = 0; i <image.Height; i++)
+                //    for (int j = 0; j < image.Width; j++)
+                //        MainForm.image =image.GetPixel(j, i).ToArgb();
                 trackBar1.Value = 0;
                 trackBar2.Value = 0;
                 trackBar3.Value = 0;
@@ -74,7 +70,7 @@ namespace Graphic_Editor
         //вывод изображения на Экран
         void FromBitmapToScreen()
         {
-            //OwnerForm.FromBitmapToScreen();
+            OwnerForm.FromBitmapToScreen();
         }
 
         //обновление изображения в Bitmap и pictureBox при закрытии окна

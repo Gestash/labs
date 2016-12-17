@@ -38,7 +38,6 @@ namespace Graphic_Editor
         }
         
         
-
         //цветовой баланс G
 
         public static Bitmap Color_G(Bitmap image, int poz, int lenght)
