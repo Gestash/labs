@@ -62,9 +62,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrightnessContrast.cs" />
-    <Compile Include="ColorBalance.cs" />
-    <Compile Include="Filter.cs" />
+    <Compile Include="Colors.cs" />
+    <Compile Include="Form_for_Colors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_for_Colors.Designer.cs">
+      <DependentUpon>Form_for_Colors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inverse.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +79,9 @@
     <Compile Include="MovingAverage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_for_Colors.resx">
+      <DependentUpon>Form_for_Colors.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

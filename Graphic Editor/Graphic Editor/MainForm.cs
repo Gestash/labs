@@ -9,6 +9,9 @@ using System.Windows.Forms;
 using System.IO;
 using System.Globalization;
 using System.Windows.Media.Imaging;
+using Tao.OpenGl;
+using Tao.FreeGlut;
+using Tao.Platform.Windows; 
 
 namespace Graphic_Editor
 {
@@ -17,13 +20,12 @@ namespace Graphic_Editor
         public MainForm()
         {
             InitializeComponent();
+            
         }
 
         public static Bitmap image;
         public static string full_name_of_image = "\0";
         public static UInt32[,] pixel;
-
-        
 
         public void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -37,9 +39,9 @@ namespace Graphic_Editor
                     full_name_of_image = open_dialog.FileName;
                     image = new Bitmap(open_dialog.FileName);
                     this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    //this.Width = image.Width + 40;
-                    //this.Height = image.Height + 75;
-                    //this.pictureBox1.Size = image.Size;
+                    this.Width = image.Width;
+                    this.Height = image.Height ;
+                    this.pictureBox1.Size = image.Size;
                     pictureBox1.Image = image;
                     pictureBox1.Invalidate(); 
                     //получение матрицы пикселей
@@ -85,8 +87,8 @@ namespace Graphic_Editor
         //public void OutExif()
         //{
         //    pictureBox1.Image = image;
-        //    //FileStream f = File.Open("Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*", FileMode.Open);
-        //    BitmapDecoder decoder = JpegBitmapDecoder.Create(image, BitmapCreateOptions.IgnoreColorProfile, BitmapCacheOption.Default);
+        //    FileStream f = File.Open("Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*", FileMode.Open);
+        //    BitmapDecoder decoder = JpegBitmapDecoder.Create(f, BitmapCreateOptions.IgnoreColorProfile, BitmapCacheOption.Default);
         //    BitmapMetadata metadata = (BitmapMetadata)decoder.Frames[0].Metadata;
         //    // Получаем заголовок через поле класса
         //    string title = metadata.Title;
@@ -135,12 +137,28 @@ namespace Graphic_Editor
            // OutExif();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void инверсияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string selectedState = comboBox1.SelectedItem.ToString();
-
+            if (full_name_of_image != "\0")
+            {
+                image = Inverse.Invert(image);
+                FromBitmapToScreen();
+            }
         }
 
-        
+        private void размытиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (full_name_of_image != "\0")
+            {
+                image = MovingAverage.Blur(image);
+                FromBitmapToScreen();
+            }
+        }
+
+        private void смещениецветовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_for_Colors ColorBalanceForm = new Form_for_Colors(this);
+            ColorBalanceForm.ShowDialog();
+        }
     }
 }

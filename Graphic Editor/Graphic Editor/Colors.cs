@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Graphic_Editor
 {
-    class ColorBalance
+    public class Colors
     {
         //цветовой баланс R
-        public static UInt32 ColorBalance_R(UInt32 point, int poz, int lenght)
+        public static UInt32 Color_R(UInt32 point, int poz, int lenght)
         {
             int R;
             int G;
@@ -30,7 +30,7 @@ namespace Graphic_Editor
         }
 
         //цветовой баланс G
-        public static UInt32 ColorBalance_G(UInt32 point, int poz, int lenght)
+        public static UInt32 Color_G(UInt32 point, int poz, int lenght)
         {
             int R;
             int G;
@@ -52,7 +52,7 @@ namespace Graphic_Editor
         }
 
         //цветовой баланс B
-        public static UInt32 ColorBalance_B(UInt32 point, int poz, int lenght)
+        public static UInt32 Color_B(UInt32 point, int poz, int lenght)
         {
             int R;
             int G;
