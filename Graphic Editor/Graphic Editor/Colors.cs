@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -8,69 +9,96 @@ namespace Graphic_Editor
     public class Colors
     {
         //цветовой баланс R
-        public static UInt32 Color_R(UInt32 point, int poz, int lenght)
+        public static Bitmap Color_R(Bitmap image, int poz, int lenght)
         {
-            int R;
-            int G;
-            int B;
+            
+            int x;
+            int y;
 
-            int N = (100 / lenght) * poz; //кол-во процентов
-
-            R = (int)(((point & 0x00FF0000) >> 16) + N * 128 / 100);
-            G = (int)((point & 0x0000FF00) >> 8);
-            B = (int)(point & 0x000000FF);
-
-            //контролируем переполнение переменных
-            if (R < 0) R = 0;
-            if (R > 255) R = 255;
-
-            point = 0xFF000000 | ((UInt32)R << 16) | ((UInt32)G << 8) | ((UInt32)B);
-
-            return point;
+            for (x = 0; x <= image.Width - 1; x++)
+            {
+                for (y = 0; y <= image.Height - 1; y += 1)
+                {
+                    int N = (100/lenght)*poz; //кол-во процентов
+                    //Пиксель изображения на замену
+                    Color oldColor = image.GetPixel(x, y);
+                    //Задание нового пикселя для замены старого
+                    Color newColor;
+                    //Задаем значение нового пикселя
+                    int r = oldColor.R + N * 128 / 100;
+                    if (r < 0) r = 0;
+                    if (r > 255) r = 255;
+                    newColor = Color.FromArgb(oldColor.A, r, oldColor.G, oldColor.B);
+                    
+                    //Заменяем новый пиксель вместо старого
+                    image.SetPixel(x, y, newColor);
+                }
+            }
+            return image;
         }
+        
+        
 
         //цветовой баланс G
-        public static UInt32 Color_G(UInt32 point, int poz, int lenght)
+
+        public static Bitmap Color_G(Bitmap image, int poz, int lenght)
         {
-            int R;
-            int G;
-            int B;
 
-            int N = (100 / lenght) * poz; //кол-во процентов
+            int x;
+            int y;
 
-            R = (int)((point & 0x00FF0000) >> 16);
-            G = (int)(((point & 0x0000FF00) >> 8) + N * 128 / 100);
-            B = (int)(point & 0x000000FF);
+            for (x = 0; x <= image.Width - 1; x++)
+            {
+                for (y = 0; y <= image.Height - 1; y += 1)
+                {
+                    int N = (100 / lenght) * poz; //кол-во процентов
+                    //Пиксель изображения на замену
+                    Color oldColor = image.GetPixel(x, y);
+                    //Задание нового пикселя для замены старого
+                    Color newColor;
+                    int g = oldColor.G + N * 128 / 100;
+                    if (g < 0) g = 0;
+                    if (g > 255) g = 255;
+                    //Задаем значение нового пикселя
+                    newColor = Color.FromArgb(oldColor.A, oldColor.R, g, oldColor.B);
+                    
+                    //Заменяем новый пиксель вместо старого
+                    image.SetPixel(x, y, newColor);
+                }
+            }
+            return image;
 
-            //контролируем переполнение переменных
-            if (G < 0) G = 0;
-            if (G > 255) G = 255;
-
-            point = 0xFF000000 | ((UInt32)R << 16) | ((UInt32)G << 8) | ((UInt32)B);
-
-            return point;
         }
-
         //цветовой баланс B
-        public static UInt32 Color_B(UInt32 point, int poz, int lenght)
+        public static Bitmap Color_B(Bitmap image, int poz, int lenght)
         {
-            int R;
-            int G;
-            int B;
 
-            int N = (100 / lenght) * poz; //кол-во процентов
+            int x;
+            int y;
 
-            R = (int)((point & 0x00FF0000) >> 16);
-            G = (int)((point & 0x0000FF00) >> 8);
-            B = (int)((point & 0x000000FF) + N * 128 / 100);
-
-            //контролируем переполнение переменных
-            if (B < 0) B = 0;
-            if (B > 255) B = 255;
-
-            point = 0xFF000000 | ((UInt32)R << 16) | ((UInt32)G << 8) | ((UInt32)B);
-
-            return point;
+            for (x = 0; x <= image.Width - 1; x++)
+            {
+                for (y = 0; y <= image.Height - 1; y += 1)
+                {
+                    int N = (100 / lenght) * poz; //кол-во процентов
+                    //Пиксель изображения на замену
+                    Color oldColor = image.GetPixel(x, y);
+                    //Задание нового пикселя для замены старого
+                    Color newColor;
+                    int b = oldColor.B + N * 128 / 100;
+                    if (b < 0) b = 0;
+                    if (b > 255) b = 255;
+                    //Задаем значение нового пикселя
+                    newColor = Color.FromArgb(oldColor.A, oldColor.R, oldColor.G, b);
+                    
+                    //Заменяем новый пиксель вместо старого
+                    image.SetPixel(x, y, newColor);
+                }
+            }
+            return image;
         }
+
+        
     }
+
 }

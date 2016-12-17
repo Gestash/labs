@@ -12,6 +12,8 @@ namespace Graphic_Editor
     public partial class Form_for_Colors : Form
     {
         MainForm OwnerForm;
+        Bitmap image1;
+        MainForm image = new MainForm();
         public Form_for_Colors(MainForm ownerForm)
         {
             this.OwnerForm = ownerForm;
@@ -24,15 +26,10 @@ namespace Graphic_Editor
         {
             if (MainForm.full_name_of_image != "\0")
             {
-                UInt32 p;
-                for (int i = 0; i < MainForm.image.Height; i++)
-                    for (int j = 0; j < MainForm.image.Width; j++)
-                    {
-                        p = Colors.Color_R(MainForm.pixel[i, j], trackBar1.Value, trackBar1.Maximum);
-                        MainForm.FromOnePixelToBitmap(i, j, p);
-                    }
 
+                OwnerForm = Colors.Color_R(image, trackBar1.Value, trackBar1.Maximum);
                 FromBitmapToScreen();
+                
             }
         }
         //G
@@ -40,13 +37,9 @@ namespace Graphic_Editor
         {
             if (MainForm.full_name_of_image != "\0")
             {
-                UInt32 p;
-                for (int i = 0; i < MainForm.image.Height; i++)
-                    for (int j = 0; j < MainForm.image.Width; j++)
-                    {
-                        p = Colors.Color_G(MainForm.pixel[i, j], trackBar2.Value, trackBar2.Maximum);
-                        MainForm.FromOnePixelToBitmap(i, j, p);
-                    }
+
+                OwnerForm = Colors.Color_G(image, trackBar2.Value, trackBar2.Maximum);
+                FromBitmapToScreen();
 
                 FromBitmapToScreen();
             }
@@ -57,13 +50,9 @@ namespace Graphic_Editor
         {
             if (MainForm.full_name_of_image != "\0")
             {
-                UInt32 p;
-                for (int i = 0; i < MainForm.image.Height; i++)
-                    for (int j = 0; j < MainForm.image.Width; j++)
-                    {
-                        p = Colors.Color_B(MainForm.pixel[i, j], trackBar3.Value, trackBar3.Maximum);
-                        MainForm.FromOnePixelToBitmap(i, j, p);
-                    }
+
+                OwnerForm = Colors.Color_B(image, trackBar3.Value, trackBar3.Maximum);
+                FromBitmapToScreen();
 
                 FromBitmapToScreen();
             }
@@ -73,19 +62,19 @@ namespace Graphic_Editor
         {
             if (MainForm.full_name_of_image != "\0")
             {
-                for (int i = 0; i < MainForm.image.Height; i++)
-                    for (int j = 0; j < MainForm.image.Width; j++)
-                        MainForm.pixel[i, j] = (UInt32)(MainForm.image.GetPixel(j, i).ToArgb());
+                for (int i = 0; i <image.Height; i++)
+                    for (int j = 0; j < image.Width; j++)
+                        MainForm.image =image1.GetPixel(j, i).ToArgb();
                 trackBar1.Value = 0;
                 trackBar2.Value = 0;
                 trackBar3.Value = 0;
             }
         }
 
-        //вывод изображения на экран
+        //вывод изображения на Экран
         void FromBitmapToScreen()
         {
-            OwnerForm.FromBitmapToScreen();
+            //OwnerForm.FromBitmapToScreen();
         }
 
         //обновление изображения в Bitmap и pictureBox при закрытии окна
@@ -93,7 +82,7 @@ namespace Graphic_Editor
         {
             if (MainForm.full_name_of_image != "\0")
             {
-                MainForm.FromPixelToBitmap();
+                
                 FromBitmapToScreen();
             }
         }  

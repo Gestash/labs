@@ -25,7 +25,6 @@ namespace Graphic_Editor
 
         public static Bitmap image;
         public static string full_name_of_image = "\0";
-        public static UInt32[,] pixel;
 
         public void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -45,10 +44,10 @@ namespace Graphic_Editor
                     pictureBox1.Image = image;
                     pictureBox1.Invalidate(); 
                     //получение матрицы пикселей
-                    pixel = new UInt32[image.Height, image.Width];
-                    for (int y = 0; y < image.Height; y++)
-                         for (int x = 0; x < image.Width; x++)
-                            pixel[y, x] = (UInt32)(image.GetPixel(x, y).ToArgb());
+                    //pixel = new UInt32[image.Height, image.Width];
+                    //for (int y = 0; y < image.Height; y++)
+                    //     for (int x = 0; x < image.Width; x++)
+                           // pixel[y, x] = (UInt32)(image.GetPixel(x, y).ToArgb());
                 }
                 catch
                 {
@@ -113,18 +112,18 @@ namespace Graphic_Editor
         
        
         //преобразование из UINT32 to Bitmap
-        public static void FromPixelToBitmap()
-        {
-            for (int y = 0; y < image.Height; y++)
-                for (int x = 0; x < image.Width; x++)
-                    image.SetPixel(x, y, Color.FromArgb((int)pixel[y, x]));
-        }
+        //public static void FromPixelToBitmap()
+        //{
+        //    for (int y = 0; y < image.Height; y++)
+        //        for (int x = 0; x < image.Width; x++)
+        //            image.SetPixel(x, y, Color.FromArgb((int)pixel[y, x]));
+        //}
 
         //преобразование из UINT32 to Bitmap по одному пикселю
-        public static void FromOnePixelToBitmap(int x, int y, UInt32 pixel)
-        {
-            image.SetPixel(y, x, Color.FromArgb((int)pixel));
-        }
+        //public static void FromOnePixelToBitmap(int x, int y, UInt32 pixel)
+        //{
+        //    image.SetPixel(y, x, Color.FromArgb((int)pixel));
+        //}
 
         //вывод на экран
         public void FromBitmapToScreen()
@@ -157,8 +156,8 @@ namespace Graphic_Editor
 
         private void смещениецветовToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_for_Colors ColorBalanceForm = new Form_for_Colors(this);
-            ColorBalanceForm.ShowDialog();
+            Form_for_Colors ColorForm = new Form_for_Colors(this);
+            ColorForm.ShowDialog();
         }
     }
 }
