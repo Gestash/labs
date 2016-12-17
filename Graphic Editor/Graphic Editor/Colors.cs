@@ -15,9 +15,9 @@ namespace Graphic_Editor
             int x;
             int y;
 
-            for (x = 0; x <= image.Width - 1; x++)
+            for (x = 1; x <= image.Width - 1; x++)
             {
-                for (y = 0; y <= image.Height - 1; y += 1)
+                for (y = 1; y <= image.Height - 1; y += 1)
                 {
                     int N = (100/lenght)*poz; //кол-во процентов
                     //Пиксель изображения на замену
@@ -46,9 +46,9 @@ namespace Graphic_Editor
             int x;
             int y;
 
-            for (x = 0; x <= image.Width - 1; x++)
+            for (x = 1; x <= image.Width - 1; x++)
             {
-                for (y = 0; y <= image.Height - 1; y += 1)
+                for (y = 1; y <= image.Height - 1; y += 1)
                 {
                     int N = (100 / lenght) * poz; //кол-во процентов
                     //Пиксель изображения на замену
@@ -75,9 +75,9 @@ namespace Graphic_Editor
             int x;
             int y;
 
-            for (x = 0; x <= image.Width - 1; x++)
+            for (x = 1; x <= image.Width - 1; x++)
             {
-                for (y = 0; y <= image.Height - 1; y += 1)
+                for (y = 1; y <= image.Height - 1; y += 1)
                 {
                     int N = (100 / lenght) * poz; //кол-во процентов
                     //Пиксель изображения на замену

@@ -62,6 +62,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BCForm.Designer.cs">
+      <DependentUpon>BCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrightnessContrast.cs" />
     <Compile Include="Colors.cs" />
     <Compile Include="FormExif.cs">
       <SubType>Form</SubType>
@@ -85,6 +92,9 @@
     <Compile Include="MovingAverage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BCForm.resx">
+      <DependentUpon>BCForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormExif.resx">
       <DependentUpon>FormExif.cs</DependentUpon>
     </EmbeddedResource>

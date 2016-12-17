@@ -115,5 +115,10 @@ namespace Graphic_Editor
             Form_for_Colors ColorForm = new Form_for_Colors(this);
             ColorForm.ShowDialog();
         }
+
+        private void яркостьКонтрастностьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
