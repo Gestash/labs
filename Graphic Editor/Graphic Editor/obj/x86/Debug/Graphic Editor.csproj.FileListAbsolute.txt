@@ -8,11 +8,10 @@ D:\Учёба\Labs\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.pd
 D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.exe
 D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.pdb
 D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.csprojResolveAssemblyReference.cache
-D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic_Editor.MainForm.resources
 D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic_Editor.Properties.Resources.resources
 D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic Editor.csproj.GenerateResource.Cache
 D:\Учёба\repo\Graphic Editor\Graphic Editor\bin\Debug\Graphic Editor.exe
 D:\Учёба\repo\Graphic Editor\Graphic Editor\bin\Debug\Graphic Editor.pdb
-D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic_Editor.FormExif.resources
-D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic_Editor.BCForm.resources
 D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic_Editor.FormforColors.resources
+D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic_Editor.Form1.resources
+D:\Учёба\repo\Graphic Editor\Graphic Editor\obj\x86\Debug\Graphic_Editor.FormBrightnessContrast.resources

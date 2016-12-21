@@ -11,7 +11,7 @@ namespace Graphic_Editor
        
         
         //цветовой баланс RGB
-        public static Bitmap Color_RGB(Bitmap image, int pozR, int pozG, int pozB)
+        public static Bitmap Color_RGB(Bitmap image, int pozR, int pozG, int pozB, int l1)
         {
            
             int x;
@@ -25,20 +25,24 @@ namespace Graphic_Editor
                     Color oldColor = image.GetPixel(x, y);
                     //Задание нового пикселя для замены старого
                     Color newColor;
-                    
+
+                    int Nr = (100 / l1) * pozR* 128 / 100;
+
                     //Задаем значение нового пикселя R компоненты
-                    int r = oldColor.R + pozR *10;
+                    int r = oldColor.R + Nr * 128 / 100;
                     if (r < 0) r = 0;
                     if (r > 255) r = 255;
                     
                     
                     //Задаем значение нового пикселя G компоненты
-                    int g = oldColor.G + pozG * 10;
+                    int Ng = (100 / l1) * pozG * 128 / 100;
+                    int g = oldColor.G + Ng * 128 / 100;
                     if (g < 0) g = 0;
                     if (g > 255) g = 255;
                     
                     //Задаем значение нового пикселя B компоненты
-                    int b = oldColor.B + pozB * 10;
+                    int Nb = (100 / l1) * pozB * 128 / 100;
+                    int b = oldColor.B + Nb * 128 / 100;
                     if (b < 0) b = 0;
                     if (b > 255) b = 255;
                     
@@ -52,8 +56,6 @@ namespace Graphic_Editor
             return image;
         }
 
-
-        
     }
   }
 

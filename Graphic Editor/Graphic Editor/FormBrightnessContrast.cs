@@ -9,16 +9,14 @@ using System.Windows.Forms;
 
 namespace Graphic_Editor
 {
-    public partial class FormForColors : Form
+    public partial class FormBrightnessContrast : Form
     {
-
         readonly Form1 _ownerForm;
-        public static int pozR;
-        public static int pozG;
         public static int pozB;
+        public static int pozC;
         public Bitmap Image;
 
-        public FormForColors(Form1 ownerForm)
+        public FormBrightnessContrast(Form1 ownerForm)
         {
             Image = Form1.image;
             _ownerForm = ownerForm;
@@ -28,34 +26,21 @@ namespace Graphic_Editor
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-
-            int poz = trackBar1.Value;
-            pozR = poz;
-            int l1= trackBar1.Maximum;
-            Image = Colors.Color_RGB(Image, pozR, pozG, pozB, l1);
+            int poz1 = trackBar1.Value;
+            pozB = poz1;
+            int l1 = trackBar1.Maximum;
+            Image = BrightnessContrast.Bright_change(Image, pozB, l1);
             FromBitmapToScreen();
         }
-
 
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
-
-            int poz = trackBar2.Value;
-            pozG = poz;
+            int poz2 = trackBar2.Value;
+            pozC = poz2;
             int l1 = trackBar1.Maximum;
-            Image = Colors.Color_RGB(Image, pozR, pozG, pozB, l1);
+            Image = BrightnessContrast.Contrast_change(Image, pozC, l1);
             FromBitmapToScreen();
         }
-        private void trackBar3_Scroll(object sender, EventArgs e)
-        {
-
-            int poz = trackBar1.Value;
-            pozB = poz;
-            int l1 = trackBar1.Maximum;
-            Image = Colors.Color_RGB(Image, pozR, pozG, pozB, l1);
-            FromBitmapToScreen();
-        }
-
 
         void FromBitmapToScreen()
         {
@@ -67,8 +52,5 @@ namespace Graphic_Editor
             FromBitmapToScreen();
 
         }
-
-        
-
     }
 }
