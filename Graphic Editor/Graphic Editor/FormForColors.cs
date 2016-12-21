@@ -11,33 +11,20 @@ namespace Graphic_Editor
 {
     public partial class FormForColors : Form
     {
-        MainForm OwnerForm;
-        static Bitmap image = new Bitmap(image);
+
+        //public static Bitmap image;// = new Bitmap(image);
+        MainForm OwnerForm = new MainForm();
         public static int pozR;
         public static int pozG;
         public static int pozB;
+      
 
         public FormForColors(MainForm ownerForm)
         {
+            Bitmap image = new Bitmap();
             this.OwnerForm = ownerForm; 
             InitializeComponent();
-            this.FormClosing += new FormClosingEventHandler(FormforColorsClosing); 
-        }
-
-        
-
-        void FromBitmapToScreen()
-        {
-            OwnerForm.FromBitmapToScreen();
-        }
-
-        private void FormforColorsClosing(object sender, EventArgs e)
-        {
-            if (MainForm.FullNameOfImage != "\0")
-            {
-                
-                FromBitmapToScreen();
-            }
+            this.FormClosing += new FormClosingEventHandler(FormForColorsClosing); 
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -62,7 +49,7 @@ namespace Graphic_Editor
                 int poz = trackBar1.Value;
                 pozB = poz;
                 Colors.Color_RGB(image, pozR, pozG, pozB);
-               // image = Colors.Color_RGB(image, pozR, pozG, pozB);
+               image = Colors.Color_RGB(image, pozR, pozG, pozB);
             } 
         }
 
@@ -78,6 +65,21 @@ namespace Graphic_Editor
                 //image = Colors.Color_RGB(image, pozR, pozG, pozB);
             } 
         }
+
+        void FromBitmapToScreen()
+        {
+            OwnerForm.FromBitmapToScreen();
+        }
+
+        private void FormForColorsClosing(object sender, EventArgs e)
+        {
+            if (MainForm.FullNameOfImage != "\0")
+            {
+
+                FromBitmapToScreen();
+            }
+        }
+
 
         
     }

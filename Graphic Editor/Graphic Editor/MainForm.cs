@@ -17,6 +17,7 @@ namespace Graphic_Editor
 {
     public partial class MainForm : Form
     {
+        
         public MainForm()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace Graphic_Editor
         }
 
         public static Bitmap image;
+        
 
         public static string FullNameOfImage = "\0";
 
@@ -115,11 +117,10 @@ namespace Graphic_Editor
 
         private void смещениецветовToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormForColors colorForm = new FormForColors(this);
-            colorForm.ShowDialog();
+
+            FormForColors ColorForm = new FormForColors(this);
+            ColorForm.ShowDialog();
         }
-
-
-        
+    
     }
 }
