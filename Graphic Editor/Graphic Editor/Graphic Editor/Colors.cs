@@ -27,18 +27,18 @@ namespace Graphic_Editor
                     Color newColor;
                     
                     //Задаем значение нового пикселя R компоненты
-                    int r = oldColor.R + pozR *10;
+                    int r = oldColor.R +pozR;
                     if (r < 0) r = 0;
                     if (r > 255) r = 255;
                     
                     
                     //Задаем значение нового пикселя G компоненты
-                    int g = oldColor.G + pozG * 10;
+                    int g = oldColor.G + pozG;
                     if (g < 0) g = 0;
                     if (g > 255) g = 255;
                     
                     //Задаем значение нового пикселя B компоненты
-                    int b = oldColor.B + pozB * 10;
+                    int b = oldColor.B + pozB;
                     if (b < 0) b = 0;
                     if (b > 255) b = 255;
                     

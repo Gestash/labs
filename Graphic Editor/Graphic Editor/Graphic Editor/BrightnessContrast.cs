@@ -6,54 +6,40 @@ using System.Text;
 
 namespace Graphic_Editor
 {
-    public static class Colors
+    public class BrightnessContrast
     {
-       
-        
-        //цветовой баланс RGB
-        public static Bitmap Color_RGB(Bitmap image, int pozR, int pozG, int pozB)
+        public static Bitmap Bright_change(Bitmap image, int poz, int lenght)
         {
-           
             int x;
             int y;
 
-            for (x = 0; x < image.Width; x++)
+            for (x = 1; x <= image.Width - 1; x++)
             {
-                for (y = 0; y < image.Height; y++)
+                for (y = 1; y <= image.Height - 1; y += 1)
                 {
+                    int N = (100 / lenght) * poz; //кол-во процентов
                     //Пиксель изображения на замену
                     Color oldColor = image.GetPixel(x, y);
                     //Задание нового пикселя для замены старого
                     Color newColor;
-                    
-                    //Задаем значение нового пикселя R компоненты
-                    int r = oldColor.R + pozR *10;
+                    //Задаем значение нового пикселя
+                    int r = oldColor.R + N * 128 / 100;
+                    int g = oldColor.G + N * 128 / 100;
+                    int b = oldColor.B + N * 128 / 100;
+                    // проверяем на переполнение
                     if (r < 0) r = 0;
                     if (r > 255) r = 255;
-                    
-                    
-                    //Задаем значение нового пикселя G компоненты
-                    int g = oldColor.G + pozG * 10;
                     if (g < 0) g = 0;
                     if (g > 255) g = 255;
-                    
-                    //Задаем значение нового пикселя B компоненты
-                    int b = oldColor.B + pozB * 10;
                     if (b < 0) b = 0;
                     if (b > 255) b = 255;
-                    
-
-                    
-                    //Заменяем новый пиксель вместо старого
                     newColor = Color.FromArgb(oldColor.A, r, g, b);
+
+                    //Заменяем новый пиксель вместо старого
                     image.SetPixel(x, y, newColor);
                 }
             }
             return image;
         }
-
-
-        
     }
-  }
-
+}
