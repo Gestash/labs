@@ -37,11 +37,12 @@
             this.размытиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.инверсияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.смещениецветовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            MainForm.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label1 = new System.Windows.Forms.Label();
-            this.яркостьКонтрастностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(MainForm.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -91,8 +92,7 @@
             this.фильтрыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.размытиеToolStripMenuItem,
             this.инверсияToolStripMenuItem,
-            this.смещениецветовToolStripMenuItem,
-            this.яркостьКонтрастностьToolStripMenuItem});
+            this.смещениецветовToolStripMenuItem});
             this.фильтрыToolStripMenuItem.Name = "фильтрыToolStripMenuItem";
             this.фильтрыToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.фильтрыToolStripMenuItem.Text = "Фильтры";
@@ -100,23 +100,33 @@
             // размытиеToolStripMenuItem
             // 
             this.размытиеToolStripMenuItem.Name = "размытиеToolStripMenuItem";
-            this.размытиеToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.размытиеToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.размытиеToolStripMenuItem.Text = "Размытие";
             this.размытиеToolStripMenuItem.Click += new System.EventHandler(this.размытиеToolStripMenuItem_Click);
             // 
             // инверсияToolStripMenuItem
             // 
             this.инверсияToolStripMenuItem.Name = "инверсияToolStripMenuItem";
-            this.инверсияToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.инверсияToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.инверсияToolStripMenuItem.Text = "Инверсия";
             this.инверсияToolStripMenuItem.Click += new System.EventHandler(this.инверсияToolStripMenuItem_Click);
             // 
             // смещениецветовToolStripMenuItem
             // 
             this.смещениецветовToolStripMenuItem.Name = "смещениецветовToolStripMenuItem";
-            this.смещениецветовToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.смещениецветовToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.смещениецветовToolStripMenuItem.Text = "Смещение цветов";
-            this.смещениецветовToolStripMenuItem.Click += new System.EventHandler(this.смещениецветовToolStripMenuItem_Click);
+            this.смещениецветовToolStripMenuItem.Click += new System.EventHandler((sender, e) => this.смещениецветовToolStripMenuItem_Click(sender, e));
+            // 
+            // pictureBox1
+            // 
+            MainForm.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            MainForm.pictureBox1.Location = new System.Drawing.Point(0, 27);
+            MainForm.pictureBox1.Name = "pictureBox1";
+            MainForm.pictureBox1.Size = new System.Drawing.Size(418, 273);
+            MainForm.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            MainForm.pictureBox1.TabIndex = 1;
+            MainForm.pictureBox1.TabStop = false;
             // 
             // openFileDialog1
             // 
@@ -130,13 +140,6 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 2;
             // 
-            // яркостьКонтрастностьToolStripMenuItem
-            // 
-            this.яркостьКонтрастностьToolStripMenuItem.Name = "яркостьКонтрастностьToolStripMenuItem";
-            this.яркостьКонтрастностьToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.яркостьКонтрастностьToolStripMenuItem.Text = "Яркость/Контрастность";
-            this.яркостьКонтрастностьToolStripMenuItem.Click += new System.EventHandler(this.яркостьКонтрастностьToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,12 +147,14 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(418, 303);
             this.Controls.Add(this.label1);
+            this.Controls.Add(MainForm.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Graphic Editor";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(MainForm.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,7 +175,6 @@
         private System.Windows.Forms.ToolStripMenuItem размытиеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem инверсияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem смещениецветовToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem яркостьКонтрастностьToolStripMenuItem;
     }
 }
 

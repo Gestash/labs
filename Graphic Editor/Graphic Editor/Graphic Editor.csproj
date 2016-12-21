@@ -76,11 +76,11 @@
     <Compile Include="FormExif.Designer.cs">
       <DependentUpon>FormExif.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_for_Colors.cs">
+    <Compile Include="FormForColors.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_for_Colors.Designer.cs">
-      <DependentUpon>Form_for_Colors.cs</DependentUpon>
+    <Compile Include="FormForColors.Designer.cs">
+      <DependentUpon>FormForColors.cs</DependentUpon>
     </Compile>
     <Compile Include="Inverse.cs" />
     <Compile Include="MainForm.cs">
@@ -98,8 +98,8 @@
     <EmbeddedResource Include="FormExif.resx">
       <DependentUpon>FormExif.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_for_Colors.resx">
-      <DependentUpon>Form_for_Colors.cs</DependentUpon>
+    <EmbeddedResource Include="FormForColors.resx">
+      <DependentUpon>FormForColors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

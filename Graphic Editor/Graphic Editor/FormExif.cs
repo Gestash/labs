@@ -20,7 +20,7 @@ namespace Graphic_Editor
             InitializeComponent();
         }
 
-        public void OutExif(MainForm image, MainForm  full_name_of_image)
+        public void OutExif(MainForm image, MainForm FullNameOfImage)
         {
             //var image1 = new ImageFormat(image);
            

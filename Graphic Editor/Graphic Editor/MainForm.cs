@@ -24,30 +24,31 @@ namespace Graphic_Editor
         }
 
         public static Bitmap image;
-        public static string full_name_of_image = "\0";
+
+        public static string FullNameOfImage = "\0";
 
         public void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            OpenFileDialog open_dialog = new OpenFileDialog();
-            open_dialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-            if (open_dialog.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    full_name_of_image = open_dialog.FileName;
-                    image = new Bitmap(open_dialog.FileName);
+                    FullNameOfImage = openFileDialog1.FileName;
+                    image = new Bitmap(openFileDialog1.FileName);
                     MainForm.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    this.Width = image.Width;
-                    this.Height = image.Height ;
+                    this.Width = image.Width + 16;
+                    this.Height = image.Height + 65;
                     MainForm.pictureBox1.Size = image.Size;
                     pictureBox1.Image = image;
-                    pictureBox1.Invalidate(); 
-                    
+                    pictureBox1.Invalidate();
+                   
                 }
                 catch
                 {
-                    full_name_of_image = "\0";
+                    FullNameOfImage = "\0";
                     DialogResult rezult = MessageBox.Show("Невозможно открыть выбранный файл",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -88,13 +89,15 @@ namespace Graphic_Editor
 
         private void выводEXIFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormExif ExifForm = new FormExif(this);
-            ExifForm.ShowDialog();
+            //FormExif ExifForm = new FormExif(this);
+            //ExifForm.ShowDialog();
+            if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
+            MessageBox.Show("Выбран файл: " + openFileDialog1.FileName);
         }
 
         private void инверсияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (full_name_of_image != "\0")
+            if (FullNameOfImage != "\0")
             {
                 image = Inverse.Invert(image);
                 FromBitmapToScreen();
@@ -103,7 +106,7 @@ namespace Graphic_Editor
 
         private void размытиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (full_name_of_image != "\0")
+            if (FullNameOfImage != "\0")
             {
                 image = MovingAverage.Blur(image);
                 FromBitmapToScreen();
@@ -112,13 +115,11 @@ namespace Graphic_Editor
 
         private void смещениецветовToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_for_Colors ColorForm = new Form_for_Colors(this);
-            ColorForm.ShowDialog();
+            FormForColors colorForm = new FormForColors(this);
+            colorForm.ShowDialog();
         }
 
-        private void яркостьКонтрастностьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
+        
     }
 }
