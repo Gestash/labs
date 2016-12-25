@@ -15,7 +15,7 @@ namespace Graphic_Editor
         readonly Form1 _ownerForm;
         public static int pozR;
         public static int pozG;
-        public static int pozB;
+        public static int pozBl;
         public Bitmap Image;
 
         public FormForColors(Form1 ownerForm)
@@ -32,7 +32,7 @@ namespace Graphic_Editor
             int poz = trackBar1.Value;
             pozR = poz;
             int l1= trackBar1.Maximum;
-            Image = Colors.Color_RGB(Image, pozR, pozG, pozB, l1);
+            Image = Colors.Color_RGB(Image, pozR, pozG, pozBl, l1);
             FromBitmapToScreen();
         }
 
@@ -43,16 +43,16 @@ namespace Graphic_Editor
             int poz = trackBar2.Value;
             pozG = poz;
             int l1 = trackBar1.Maximum;
-            Image = Colors.Color_RGB(Image, pozR, pozG, pozB, l1);
+            Image = Colors.Color_RGB(Image, pozR, pozG, pozBl, l1);
             FromBitmapToScreen();
         }
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
 
-            int poz = trackBar1.Value;
-            pozB = poz;
+            int poz = trackBar3.Value;
+            pozBl = poz;
             int l1 = trackBar1.Maximum;
-            Image = Colors.Color_RGB(Image, pozR, pozG, pozB, l1);
+            Image = Colors.Color_RGB(Image, pozR, pozG, pozBl, l1);
             FromBitmapToScreen();
         }
 
@@ -68,7 +68,7 @@ namespace Graphic_Editor
 
         }
 
-        
+      
 
     }
 }

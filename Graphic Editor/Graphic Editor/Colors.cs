@@ -11,7 +11,7 @@ namespace Graphic_Editor
        
         
         //цветовой баланс RGB
-        public static Bitmap Color_RGB(Bitmap image, int pozR, int pozG, int pozB, int l1)
+        public static Bitmap Color_RGB(Bitmap image, int pozR, int pozG, int pozBl, int l1)
         {
            
             int x;
@@ -41,7 +41,7 @@ namespace Graphic_Editor
                     if (g > 255) g = 255;
                     
                     //Задаем значение нового пикселя B компоненты
-                    int Nb = (100 / l1) * pozB * 128 / 100;
+                    int Nb = (100 / l1) * pozBl * 128 / 100;
                     int b = oldColor.B + Nb * 128 / 100;
                     if (b < 0) b = 0;
                     if (b > 255) b = 255;
