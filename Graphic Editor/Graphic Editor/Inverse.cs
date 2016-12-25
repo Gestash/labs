@@ -14,9 +14,9 @@ namespace Graphic_Editor
             int x;
             int y;
 
-            for (x = 0; x <= image.Width - 1; x++)
+            for (x = 0; x <= image.Width-1; x++)
             {
-                for (y = 0; y <= image.Height - 1; y += 1)
+                for (y = 0; y <= image.Height-1; y += 1)
                 {
                     //Пиксель изображения на замену
                     Color oldColor = image.GetPixel(x, y);

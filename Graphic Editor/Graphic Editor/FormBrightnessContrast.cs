@@ -52,5 +52,7 @@ namespace Graphic_Editor
             FromBitmapToScreen();
 
         }
+
+        
     }
 }

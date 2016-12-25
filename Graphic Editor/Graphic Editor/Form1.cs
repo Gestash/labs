@@ -41,25 +41,25 @@ namespace Graphic_Editor
                     picture.Invalidate();
 
 
-                    FileStream f = File.Open(FullNameOfImage, FileMode.Open);
-                    BitmapDecoder decoder = JpegBitmapDecoder.Create(f, BitmapCreateOptions.IgnoreColorProfile, BitmapCacheOption.Default);
-                    BitmapMetadata metadata = (BitmapMetadata)decoder.Frames[0].Metadata;
-                    // Получаем заголовок через поле класса
-                    string title = metadata.Title;
-                    // Получаем заголовок из XMP
-                    string xmptitle = (string)metadata.GetQuery(@"/xmp/<xmpalt>dc:title");
-                    // Получаем заголовок из EXIF
-                    string exiftitle = (string)metadata.GetQuery(@"/app1/ifd/{ushort=40091}");
-                    // Получаем заголовок из IPTC
-                    string iptctitle = (string)metadata.GetQuery(@"/app13/irb/8bimiptc/iptc/object name");
+                    //FileStream f = File.Open(FullNameOfImage, FileMode.Open);
+                    //BitmapDecoder decoder = JpegBitmapDecoder.Create(f, BitmapCreateOptions.IgnoreColorProfile, BitmapCacheOption.Default);
+                    //BitmapMetadata metadata = (BitmapMetadata)decoder.Frames[0].Metadata;
+                    //// Получаем заголовок через поле класса
+                    //string title = metadata.Title;
+                    //// Получаем заголовок из XMP
+                    //string xmptitle = (string)metadata.GetQuery(@"/xmp/<xmpalt>dc:title");
+                    //// Получаем заголовок из EXIF
+                    //string exiftitle = (string)metadata.GetQuery(@"/app1/ifd/{ushort=40091}");
+                    //// Получаем заголовок из IPTC
+                    //string iptctitle = (string)metadata.GetQuery(@"/app13/irb/8bimiptc/iptc/object name");
 
-                    BitmapMetadata md = new BitmapMetadata("jpg");
-                    md.SetQuery(@"/xmp/<xmpalt>dc:title", xmptitle);
-                    md.SetQuery(@"/app1/ifd/{ushort=40091}", exiftitle);
-                    md.SetQuery(@"/app13/irb/8bimiptc/iptc/object name", iptctitle);
-                    BitmapFrame frame = BitmapFrame.Create(decoder.Frames[0], decoder.Frames[0].Thumbnail, md, decoder.Frames[0].ColorContexts);
-                    BitmapEncoder encoder = new JpegBitmapEncoder();
-                    encoder.Frames.Add(frame);
+                    //BitmapMetadata md = new BitmapMetadata("jpg");
+                    //md.SetQuery(@"/xmp/<xmpalt>dc:title", xmptitle);
+                    //md.SetQuery(@"/app1/ifd/{ushort=40091}", exiftitle);
+                    //md.SetQuery(@"/app13/irb/8bimiptc/iptc/object name", iptctitle);
+                    //BitmapFrame frame = BitmapFrame.Create(decoder.Frames[0], decoder.Frames[0].Thumbnail, md, decoder.Frames[0].ColorContexts);
+                    //BitmapEncoder encoder = new JpegBitmapEncoder();
+                    //encoder.Frames.Add(frame);
                     //FileStream of = File.Open(FullNameOfImage, FileMode.Create, FileAccess.Write);
                    // encoder.Save(of);
                     //of.Close();
